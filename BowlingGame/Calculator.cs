@@ -11,15 +11,13 @@
 
         public int GetScoreForAllRollsInGame()
         {
-            int rollIndex = 0;
-            int score = 0;
+            var rollIndex = 0;
+            var score = 0;
 
             for (int frame = 0; frame < 10; frame++)
             {
-                // strike
                 if (IsAStrike(rollIndex))
                 {
-
                     score += rolls[rollIndex] + rolls[rollIndex + 1] + rolls[rollIndex + 2];
                     rollIndex++;
                 }
