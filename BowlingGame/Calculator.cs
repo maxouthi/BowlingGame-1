@@ -16,24 +16,39 @@
 
         public void GetScoreForAllRollsInGame(ref int score)
         {
-            int i = 0;
+            int rollIndex = 0;
+            int currentRoll = 0;
 
-            for (int f = 0; f < 10; f++)
+            for (int frame = 0; frame < 10; frame++)
             {
-                // spares
-                if (rolls[i] + rolls[i + 1] == 10)
+                // strike
+                if (IsAStrike(rollIndex))
                 {
-                    score += 10 + rolls[i + 2];
-                    i++;
+
+                    score += rolls[rollIndex] + rolls[rollIndex + 1] + rolls[rollIndex + 2];
+                    rollIndex++;
+                }
+                else if (IsASpare(rollIndex))
+                {
+                    score += 10 + rolls[rollIndex + 2];
+                    rollIndex += 2;
                 }
                 else
                 {
-                    score += rolls[i] + rolls[i + 1];
-                    i++;
+                    score += rolls[rollIndex] + rolls[rollIndex + 1];
+                    rollIndex += 2;
                 }
-
-                i++;
             }
+        }
+
+        private bool IsASpare(int rollIndex)
+        {
+            return rolls[rollIndex] + rolls[rollIndex + 1] == 10;
+        }
+
+        private bool IsAStrike(int rollIndex)
+        {
+            return rolls[rollIndex] == 10;
         }
     }
 }
