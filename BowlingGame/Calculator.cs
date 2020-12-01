@@ -9,10 +9,10 @@
             this.rolls = rolls;
         }
 
-        public void GetScoreForAllRollsInGame(ref int score)
+        public int GetScoreForAllRollsInGame()
         {
             int rollIndex = 0;
-            int currentRoll = 0;
+            int score = 0;
 
             for (int frame = 0; frame < 10; frame++)
             {
@@ -34,6 +34,7 @@
                     rollIndex += 2;
                 }
             }
+            return score;
         }
 
         private bool IsASpare(int rollIndex)

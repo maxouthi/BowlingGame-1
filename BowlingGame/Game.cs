@@ -26,10 +26,7 @@ namespace BowlingGame
         {
             Calculator calculator = new Calculator(rolls);
 
-            var score = 0;
-            calculator.GetScoreForAllRollsInGame(ref score);
-
-            return score;
+            return calculator.GetScoreForAllRollsInGame();
         }
     }
 }
