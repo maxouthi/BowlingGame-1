@@ -1,17 +1,12 @@
 ﻿namespace BowlingGame
 {
-    class Calculator
+    public class Calculator
     {
         private int[] rolls;
 
-        private Calculator(int[] rolls)
+        public Calculator(int[] rolls)
         {
             this.rolls = rolls;
-        }
-
-        public static Calculator GetRollCalculator(int[] rolls)
-        {
-            return new Calculator(rolls);
         }
 
         public void GetScoreForAllRollsInGame(ref int score)

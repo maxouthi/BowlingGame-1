@@ -4,7 +4,7 @@ namespace BowlingGame
     public class Game
     {
         // initializes rolls array
-        public int[] rolls = new int[21];
+        private int[] rolls = new int[21];
         // initializes roll
         private int currentRoll = 0;
 
@@ -24,7 +24,7 @@ namespace BowlingGame
         /// <returns>the score</returns>
         public int Score()
         {
-            Calculator calculator = Calculator.GetRollCalculator(rolls);
+            Calculator calculator = new Calculator(rolls);
 
             var score = 0;
             calculator.GetScoreForAllRollsInGame(ref score);
